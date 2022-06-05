@@ -1,23 +1,22 @@
-import logo from "./logo.svg";
 import styled from "styled-components";
 import StarfieldAnimation from "react-starfield-animation";
 
 const Screen = styled.div`
-  background: linear-gradient(to top, #201b46, #020108);
+  background: linear-gradient(to top, #25155b, #020108);
   background-size: stretch;
   min-height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 `;
 
 const starfieldStyle = {
   position: "absolute",
-  zIndex: 1,
-  top: 0,
-  left: 0,
-  right: 0,
-  bottom: 0,
+  top: "0px",
+  left: "0px",
+  right: "0px",
+  bottom: "0px",
 };
 
 const Title = styled.div`
