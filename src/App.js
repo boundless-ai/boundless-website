@@ -60,7 +60,7 @@ function App() {
     <Screen>
       <Title>Boundless Search</Title>
       <br />
-      <Subtitle>instantly find anything you've learned</Subtitle>
+      <Subtitle>instantly recall anything you've learned</Subtitle>
       <br />
       <br />
       <br />
