@@ -83,12 +83,14 @@ function App() {
       <ContentContainer>
         <Title>Boundless Search</Title>
         <br />
-        <Subtitle>instantly recall anything you've learned</Subtitle>
+        <Subtitle>Instantly recall anything you've learned.</Subtitle>
         <br />
         <br />
         <br />
         <br />
-        <Button href="https://www.craft.do/s/xqPpuRBsexRtIW">learn more</Button>
+        <Button href="https://www.craft.do/s/xqPpuRBsexRtIW">
+          Read the Memo
+        </Button>
       </ContentContainer>
       <StarfieldAnimation
         numParticles={200}
