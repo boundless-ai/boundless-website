@@ -88,9 +88,7 @@ function App() {
         <br />
         <br />
         <br />
-        <Button href="https://www.craft.do/s/xqPpuRBsexRtIW">
-          Read the Memo
-        </Button>
+        <Button href="https://www.craft.do/s/xqPpuRBsexRtIW">More</Button>
       </ContentContainer>
       <StarfieldAnimation
         numParticles={200}
