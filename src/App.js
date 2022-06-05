@@ -21,27 +21,50 @@ const starfieldStyle = {
 
 const Title = styled.div`
   color: #eeedf9;
-  font-size: 16vw;
+  font-size: 10vw;
   text-align: center;
   width: 100%;
   font-weight: 400;
-  font-family: "Inter";
+  font-family: Inter;
 `;
 
 const Subtitle = styled.div`
   color: #eeedf9;
-  font-size: 6vw;
+  font-size: 5vw;
   text-align: center;
   width: 100%;
-  font-weight: 300;
-  font-family: "Inter";
+  font-weight: 400;
+  font-family: Inter;
+`;
+
+const Button = styled.a`
+  z-index: 1;
+  background-color: #7151f5;
+  padding: 6px 50px;
+  border-radius: 100px;
+  color: #eeedf9;
+  font-size: 5vw;
+  font-weight: 400;
+  font-family: Inter;
+  text-decoration: none;
 `;
 
 function App() {
   return (
     <Screen>
-      <StarfieldAnimation numParticles={400} style={starfieldStyle} />
-      <Title>Boundless</Title>
+      <Title>Boundless Search</Title>
+      <br />
+      <Subtitle>instantly find anything you've learned</Subtitle>
+      <br />
+      <br />
+      <br />
+      <br />
+      <Button href="https://google.com">learn more</Button>
+      <StarfieldAnimation
+        numParticles={200}
+        depth={2000}
+        style={starfieldStyle}
+      />
     </Screen>
   );
 }
