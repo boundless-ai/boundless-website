@@ -1,25 +1,27 @@
 import logo from "./logo.svg";
-import "./App.css";
 import styled from "styled-components";
+import StarfieldAnimation from "react-starfield-animation";
 
 const Screen = styled.div`
-  background-color: #000000;
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  bottom: 0px;
-  left: 0px;
+  background: linear-gradient(to top, #201b46, #020108);
+  background-size: stretch;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
-const TitleContainer = styled.div`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-`;
+const starfieldStyle = {
+  position: "absolute",
+  zIndex: 1,
+  top: 0,
+  left: 0,
+  right: 0,
+  bottom: 0,
+};
 
 const Title = styled.div`
-  color: #ffffff;
+  color: #eeedf9;
   font-size: 16vw;
   text-align: center;
   width: 100%;
@@ -30,9 +32,8 @@ const Title = styled.div`
 function App() {
   return (
     <Screen>
-      <TitleContainer>
-        <Title>Boundless</Title>
-      </TitleContainer>
+      <StarfieldAnimation numParticles={400} style={starfieldStyle} />
+      <Title>Boundless</Title>
     </Screen>
   );
 }
