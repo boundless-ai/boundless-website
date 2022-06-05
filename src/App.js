@@ -47,6 +47,12 @@ const Button = styled.a`
   font-weight: 400;
   font-family: Inter;
   text-decoration: none;
+  transition: 0.2s ease-out;
+
+  &:hover {
+    transform: scale(1.06);
+    transition: 0.2s ease-out;
+  }
 `;
 
 function App() {
