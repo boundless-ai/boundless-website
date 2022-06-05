@@ -28,6 +28,15 @@ const Title = styled.div`
   font-family: "Inter";
 `;
 
+const Subtitle = styled.div`
+  color: #eeedf9;
+  font-size: 6vw;
+  text-align: center;
+  width: 100%;
+  font-weight: 300;
+  font-family: "Inter";
+`;
+
 function App() {
   return (
     <Screen>
