@@ -19,22 +19,41 @@ const starfieldStyle = {
   bottom: "0px",
 };
 
+const ContentContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  @media (max-width: 768px) {
+    align-items: start;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+`;
+
 const Title = styled.div`
   color: #eeedf9;
   font-size: 10vw;
-  text-align: center;
-  width: 100%;
-  font-weight: 400;
+  font-weight: 600;
   font-family: Inter;
+  
+  @media (max-width: 768px) {
+    font-size: 60px;
+    text-align: left;
+    flex-wrap: wrap;
 `;
 
 const Subtitle = styled.div`
   color: #eeedf9;
-  font-size: 5vw;
-  text-align: center;
-  width: 100%;
+  font-size: 4.5vw;
   font-weight: 400;
   font-family: Inter;
+  
+  @media (max-width: 768px) {
+    font-size: 35px;
+    text-align: left;
+    flex-wrap: wrap;
 `;
 
 const Button = styled.a`
@@ -43,7 +62,7 @@ const Button = styled.a`
   padding: 6px 50px;
   border-radius: 100px;
   color: #eeedf9;
-  font-size: 5vw;
+  font-size: 4.5vw;
   font-weight: 400;
   font-family: Inter;
   text-decoration: none;
@@ -53,19 +72,24 @@ const Button = styled.a`
     transform: scale(1.06);
     transition: 0.2s ease-out;
   }
+  
+  @media (max-width: 768px) {
+    font-size: 35px;
 `;
 
 function App() {
   return (
     <Screen>
-      <Title>Boundless Search</Title>
-      <br />
-      <Subtitle>instantly recall anything you've learned</Subtitle>
-      <br />
-      <br />
-      <br />
-      <br />
-      <Button href="https://google.com">learn more</Button>
+      <ContentContainer>
+        <Title>Boundless Search</Title>
+        <br />
+        <Subtitle>instantly recall anything you've learned</Subtitle>
+        <br />
+        <br />
+        <br />
+        <br />
+        <Button href="https://google.com">learn more</Button>
+      </ContentContainer>
       <StarfieldAnimation
         numParticles={200}
         depth={2000}
