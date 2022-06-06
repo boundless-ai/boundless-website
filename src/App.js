@@ -59,7 +59,7 @@ const Subtitle = styled.div`
 const Button = styled.a`
   z-index: 1;
   background-color: #7151f5;
-  padding: 6px 50px;
+  padding: 8px 32px;
   border-radius: 100px;
   color: #eeedf9;
   font-size: 4.5vw;
@@ -88,7 +88,7 @@ function App() {
         <br />
         <br />
         <br />
-        <Button href="https://www.craft.do/s/xqPpuRBsexRtIW">More</Button>
+        <Button href="https://www.craft.do/s/xqPpuRBsexRtIW">More Info</Button>
       </ContentContainer>
       <StarfieldAnimation
         numParticles={200}
