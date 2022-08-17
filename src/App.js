@@ -89,6 +89,7 @@ function App() {
         <br />
         <br />
         <Button href="https://www.craft.do/s/xqPpuRBsexRtIW">More Info</Button>
+        <Button href="https://ronithk.substack.com/p/boundless-search?s=r&utm_campaign=post&utm_medium=web">More Info</Button>
       </ContentContainer>
       <StarfieldAnimation
         numParticles={200}
