@@ -34,7 +34,7 @@ const ContentContainer = styled.div`
 
 const Title = styled.div`
   color: #eeedf9;
-  font-size: 10vw;
+  font-size: 8vw;
   font-weight: 600;
   font-family: Inter;
   
@@ -46,8 +46,8 @@ const Title = styled.div`
 
 const Subtitle = styled.div`
   color: #eeedf9;
-  font-size: 4.5vw;
-  font-weight: 400;
+  font-size: 4vw;
+  font-weight: 500;
   font-family: Inter;
   
   @media (max-width: 768px) {
@@ -59,11 +59,11 @@ const Subtitle = styled.div`
 const Button = styled.a`
   z-index: 1;
   background-color: #7151f5;
-  padding: 8px 32px;
+  padding: 12px 60px;
   border-radius: 100px;
   color: #eeedf9;
-  font-size: 4.5vw;
-  font-weight: 400;
+  font-size: 3vw;
+  font-weight: 500;
   font-family: Inter;
   text-decoration: none;
   transition: 0.2s ease-out;
@@ -81,6 +81,9 @@ function App() {
   return (
     <Screen>
       <ContentContainer>
+        <br />
+        <br />
+        <br />
         <Title>Boundless Search</Title>
         <br />
         <Subtitle>Instantly recall anything you've learned.</Subtitle>
@@ -88,7 +91,7 @@ function App() {
         <br />
         <br />
         <br />
-        <Button href="https://www.craft.do/s/xqPpuRBsexRtIW">More Info</Button>
+        <br />
         <Button href="https://ronithk.substack.com/p/boundless-search?s=r&utm_campaign=post&utm_medium=web">More Info</Button>
       </ContentContainer>
       <StarfieldAnimation
