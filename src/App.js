@@ -81,30 +81,32 @@ const Button = styled.a`
 
 function App() {
   return (
-    <Screen>
+    <>
       <Helmet>
         <title>Boundless</title>
         <meta property="og:title" content="Boundless" />
         <meta
           property="og:description"
-          content="Recall anything you've learned."
+          content="Instantly recall anything you've learned."
         />
         <meta property="og:image" content="https://boundless.so/cover.png" />
       </Helmet>
-      <ContentContainer>
-        <Break count={3} />
-        <Title>Boundless Search</Title>
-        <Break count={1} />
-        <Subtitle>Instantly recall anything you've learned.</Subtitle>
-        <Break count={5} />
-        <Button href="https://ronithk.substack.com/archive">More Info</Button>
-      </ContentContainer>
-      <StarfieldAnimation
-        numParticles={200}
-        depth={2000}
-        style={starfieldStyle}
-      />
-    </Screen>
+      <Screen>
+        <ContentContainer>
+          <Break count={3} />
+          <Title>Boundless Search</Title>
+          <Break count={1} />
+          <Subtitle>Instantly recall anything you've learned.</Subtitle>
+          <Break count={5} />
+          <Button href="https://ronithk.substack.com/archive">More Info</Button>
+        </ContentContainer>
+        <StarfieldAnimation
+          numParticles={200}
+          depth={2000}
+          style={starfieldStyle}
+        />
+      </Screen>
+    </>
   );
 }
 
