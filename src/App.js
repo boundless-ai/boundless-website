@@ -92,7 +92,7 @@ function App() {
         <br />
         <br />
         <br />
-        <Button href="https://ronithk.substack.com/p/boundless-search?s=r&utm_campaign=post&utm_medium=web">More Info</Button>
+        <Button href="https://ronithk.substack.com/archive">More Info</Button>
       </ContentContainer>
       <StarfieldAnimation
         numParticles={200}
