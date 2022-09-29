@@ -81,17 +81,11 @@ function App() {
   return (
     <Screen>
       <ContentContainer>
-        <br />
-        <br />
-        <br />
+        <Break count={3} />
         <Title>Boundless Search</Title>
-        <br />
+        <Break count={1} />
         <Subtitle>Instantly recall anything you've learned.</Subtitle>
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
+        <Break count={5} />
         <Button href="https://ronithk.substack.com/archive">More Info</Button>
       </ContentContainer>
       <StarfieldAnimation
@@ -101,6 +95,14 @@ function App() {
       />
     </Screen>
   );
+}
+
+function Break(props) {
+  const breaks = [];
+  for (let i = 0; i < props.count; i++) {
+    breaks.push(<br />);
+  }
+  return <div>{breaks}</div>;
 }
 
 export default App;
