@@ -29,6 +29,7 @@ const ContentContainer = styled.div`
     align-items: start;
     padding-left: 30px;
     padding-right: 30px;
+    padding-bottom: 100px;
   }
 `;
 
