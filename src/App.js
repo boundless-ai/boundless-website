@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import StarfieldAnimation from "react-starfield-animation";
+import Helmet from "react-helmet";
 
 const Screen = styled.div`
   background: linear-gradient(to top, #25155b, #020108);
@@ -81,6 +82,15 @@ const Button = styled.a`
 function App() {
   return (
     <Screen>
+      <Helmet>
+        <title>Boundless</title>
+        <meta property="og:title" content="Boundless" />
+        <meta
+          property="og:description"
+          content="Recall anything you've learned."
+        />
+        <meta property="og:image" content="https://boundless.so/cover.png" />
+      </Helmet>
       <ContentContainer>
         <Break count={3} />
         <Title>Boundless Search</Title>
