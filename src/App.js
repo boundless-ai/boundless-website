@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import styled from "styled-components";
 import StarfieldAnimation from "react-starfield-animation";
 import Helmet from "react-helmet";
@@ -7,31 +7,33 @@ import SignUpForm from "./SignUpForm";
 
 const Screen = styled.div`
     min-height: 100vh;
+    width: 100vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 `;
 
-const StarfieldContainer = styled.div`
-    position: "sticky";
-`;
-
 const starfieldStyle = {
     position: "absolute",
-    width: "100%",
-    height: "100%",
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
 };
 
-const ContentContainer = styled.div`
+const ContentBackground = styled.div`
     background: linear-gradient(to top, #25155b, #020108);
     background-size: stretch;
+    width: 100vw;
+`;
+
+const ContentContainer = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    width: 100vw;
 
     @media (max-width: 768px) {
         align-items: start;
@@ -92,24 +94,23 @@ const Button = styled.a`
     font-size: 35px;
 `;
 
-const SecondaryContentContainer = styled.div`
+const SecondaryContentBackground = styled.div`
     background: linear-gradient(to top, #43279f, #25155b);
+    background-size: stretch;
+    width: 100vw;
+`;
+
+const SecondaryContentContainer = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    width: 100vw;
-
-    @media (max-width: 768px) {
-        padding-left: 30px;
-        padding-right: 30px;
-        padding-bottom: 100px;
-    }
 `;
 
 function App() {
     const [showModal, setShowModal] = useState(true);
+    var pageEndRef = useRef(null);
 
     return (
         <>
@@ -126,24 +127,37 @@ function App() {
                 />
                 <script async src="https://tally.so/widgets/embed.js"></script>
             </Helmet>
-            <StarfieldAnimation
-                numParticles={200}
-                depth={2000}
-                style={starfieldStyle}
-            />
             <Screen>
-                <ContentContainer>
-                    <Break count={3} />
-                    <Title>Boundless</Title>
-                    <Break count={1} />
-                    <Subtitle>Your personalized, intelligent OS</Subtitle>
-                    <Break count={5} />
-                    <Button>Join Waitlist</Button>
-                </ContentContainer>
-                <SecondaryContentContainer>
-                    <SignUpForm />
-                </SecondaryContentContainer>
+                <ContentBackground>
+                    <ContentContainer>
+                        <Break count={3} />
+                        <Title>Boundless</Title>
+                        <Break count={1} />
+                        <Subtitle>Your personalized, intelligent OS</Subtitle>
+                        <Break count={5} />
+                        <Button
+                            onClick={() =>
+                                pageEndRef.current.scrollIntoView({
+                                    behavior: "smooth",
+                                })
+                            }
+                        >
+                            Join Waitlist
+                        </Button>
+                    </ContentContainer>
+                </ContentBackground>
+                <SecondaryContentBackground>
+                    <SecondaryContentContainer>
+                        <SignUpForm />
+                    </SecondaryContentContainer>
+                </SecondaryContentBackground>
+                <StarfieldAnimation
+                    numParticles={200}
+                    depth={2000}
+                    style={starfieldStyle}
+                />
             </Screen>
+            <div ref={pageEndRef} />
         </>
     );
 }

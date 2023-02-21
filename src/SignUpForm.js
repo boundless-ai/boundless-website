@@ -7,7 +7,7 @@ const FormContainer = styled.div`
     justify-content: center;
     flex-direction: column;
 
-    width: 90vw;
+    width: 70vw;
     max-width: 450px;
     background-color: #00000060;
     backdrop-filter: blur(2px);
