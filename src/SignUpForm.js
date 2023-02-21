@@ -105,6 +105,22 @@ const SignUpForm = () => {
                 validateOnBlur={false}
                 onSubmit={(values, { setSubmitting }) => {
                     setTimeout(() => {
+                        var Airtable = require("airtable");
+                        Airtable.configure({
+                            endpointUrl: "https://api.airtable.com",
+                            apiKey: "patxG0XCGdjqKRqi0.6e75797e3fe20f78cca9df62fc4a5e0f028440a92d8778f73ea526795ba5f14c",
+                        });
+                        const base = Airtable.base("appQ8cRN0HwZeAvjv");
+                        base("Sign Ups").create([
+                            {
+                                fields: {
+                                    Name: values.name,
+                                    Email: values.email,
+                                    Twitter: values.twitter,
+                                },
+                            },
+                        ]);
+
                         setSubmitting(false);
                         setIsSubmitted(true);
                     }, 400);
@@ -114,9 +130,9 @@ const SignUpForm = () => {
                     <Form
                         style={{
                             display: "flex",
-                            "flex-direction": "column",
-                            "justify-contents": "center",
-                            "align-items": "center",
+                            flexDirection: "column",
+                            justifyContents: "center",
+                            alignItems: "center",
                             width: "100%",
                         }}
                     >
@@ -173,12 +189,12 @@ const SignUpForm = () => {
                             <div
                                 style={{
                                     display: "flex",
-                                    "align-items": "center",
+                                    alignItems: "center",
                                     gap: "8px",
                                     color: "#A491F0",
-                                    "font-family": "Inter",
-                                    "font-size": "20px",
-                                    "font-weight": "600",
+                                    fontFamily: "Inter",
+                                    fontSize: "20px",
+                                    fontWeight: "600",
                                 }}
                             >
                                 <Checkmark size="20px" color="#866BF0" />
