@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import { Formik, Form, ErrorMessage } from "formik";
+import * as Yup from "yup";
 
 const FormContainer = styled.div`
     z-index: 1;
@@ -33,6 +35,8 @@ const Title = styled.div`
 `;
 
 const TextField = styled.input`
+    width: 100%;
+    box-sizing: border-box;
     color: white;
     border: 2px solid #313131;
     background-color: #31313130;
@@ -41,7 +45,6 @@ const TextField = styled.input`
     font-size: 20px;
     font-family: Inter;
     outline: none;
-    width: calc(100% - 20px);
     transition: 0.2s ease-out;
 
     &:focus {
@@ -50,7 +53,7 @@ const TextField = styled.input`
     }
 `;
 
-const Button = styled.div`
+const Button = styled.button`
     display: inline-flex;
     padding: 10px 30px;
     border-radius: 100px;
@@ -63,6 +66,8 @@ const Button = styled.div`
     font-family: Inter;
     text-decoration: none;
     transition: 0.2s ease-out;
+    outline: none;
+    border: none;
 
     -webkit-user-select: none;
     -ms-user-select: none;
@@ -74,28 +79,96 @@ const Button = styled.div`
     }
 `;
 
+const SignUpSchema = Yup.object().shape({
+    name: Yup.string().required("Required"),
+    email: Yup.string().email("Invalid Email").required("Required"),
+    twitter: Yup.string().url("Invalid Twitter URL").required("Required"),
+});
+
 const SignUpForm = () => {
+    const errorMessageStyle = {
+        color: "red",
+        marginBottom: "6px",
+        display: "inline-flex",
+    };
+
     return (
         <FormContainer>
-            <Title style={{ marginBottom: "40px" }}>Join Waitlist</Title>
-            <TextField
-                type="text"
-                placeholder="Name"
-                style={{ marginBottom: "20px" }}
-            />
-            <TextField
-                type="text"
-                placeholder="Email"
-                style={{ marginBottom: "20px" }}
-            />
-            <TextField
-                type="text"
-                placeholder="Twitter Link (Optional)"
-                style={{ marginBottom: "40px" }}
-            />
-            <Button href="https://google.com" style={{ marginBottom: "0px" }}>
-                Submit
-            </Button>
+            <Formik
+                initialValues={{ name: "", email: "", twitter: "" }}
+                validationSchema={SignUpSchema}
+                validateOnChange={false}
+                validateOnBlur={false}
+                onSubmit={(values, { setSubmitting }) => {
+                    setTimeout(() => {
+                        alert(JSON.stringify(values, null, 2));
+                        setSubmitting(false);
+                    }, 400);
+                }}
+            >
+                {({
+                    values,
+                    errors,
+                    handleChange,
+                    handleBlur,
+                    isSubmitting,
+                }) => (
+                    <Form>
+                        <Title style={{ marginBottom: "40px" }}>
+                            Join Waitlist
+                        </Title>
+
+                        <ErrorMessage
+                            name="name"
+                            component="div"
+                            style={errorMessageStyle}
+                        />
+                        <TextField
+                            name="name"
+                            type="text"
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            value={values.name}
+                            placeholder="Full Name"
+                            style={{ marginBottom: "20px" }}
+                        />
+
+                        <ErrorMessage
+                            name="email"
+                            component="div"
+                            style={errorMessageStyle}
+                        />
+                        <TextField
+                            name="email"
+                            type="text"
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            value={values.email}
+                            placeholder="Email"
+                            style={{ marginBottom: "20px" }}
+                        />
+
+                        <ErrorMessage
+                            name="twitter"
+                            component="div"
+                            style={errorMessageStyle}
+                        />
+                        <TextField
+                            name="twitter"
+                            type="link"
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            value={values.twitter}
+                            placeholder="Twitter Link"
+                            style={{ marginBottom: "40px" }}
+                        />
+
+                        <Button type="submit" disabled={isSubmitting}>
+                            Submit
+                        </Button>
+                    </Form>
+                )}
+            </Formik>
         </FormContainer>
     );
 };

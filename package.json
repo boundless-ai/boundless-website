@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "formik": "^2.2.9",
     "prettier": "^2.6.2",
     "react": "16.14",
     "react-dom": "^16.14.0",
@@ -10,7 +11,8 @@
     "react-scripts": "^5.0.1",
     "react-starfield-animation": "^1.0.1",
     "styled-components": "^5.3.5",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "yup": "^1.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
