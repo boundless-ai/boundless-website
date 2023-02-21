@@ -1,4 +1,6 @@
+import { useState } from "react";
 import styled from "styled-components";
+import { Checkmark } from "react-checkmark";
 import { Formik, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
@@ -16,10 +18,6 @@ const FormContainer = styled.div`
     border-radius: 14px;
     overflow-y: auto;
     padding: 40px;
-
-    @media (max-width: 768px) {
-        align-items: start;
-    }
 `;
 
 const Title = styled.div`
@@ -86,10 +84,16 @@ const SignUpSchema = Yup.object().shape({
 });
 
 const SignUpForm = () => {
+    const [isSubmitted, setIsSubmitted] = useState(false);
+
     const errorMessageStyle = {
         color: "red",
         marginBottom: "6px",
         display: "inline-flex",
+        "font-family": "Inter",
+        "margin-left": "6px",
+        "text-align": "left",
+        width: "100%",
     };
 
     return (
@@ -101,19 +105,21 @@ const SignUpForm = () => {
                 validateOnBlur={false}
                 onSubmit={(values, { setSubmitting }) => {
                     setTimeout(() => {
-                        alert(JSON.stringify(values, null, 2));
                         setSubmitting(false);
+                        setIsSubmitted(true);
                     }, 400);
                 }}
             >
-                {({
-                    values,
-                    errors,
-                    handleChange,
-                    handleBlur,
-                    isSubmitting,
-                }) => (
-                    <Form>
+                {({ values, handleChange, handleBlur, isSubmitting }) => (
+                    <Form
+                        style={{
+                            display: "flex",
+                            "flex-direction": "column",
+                            "justify-contents": "center",
+                            "align-items": "center",
+                            width: "100%",
+                        }}
+                    >
                         <Title style={{ marginBottom: "40px" }}>
                             Join Waitlist
                         </Title>
@@ -163,9 +169,26 @@ const SignUpForm = () => {
                             style={{ marginBottom: "40px" }}
                         />
 
-                        <Button type="submit" disabled={isSubmitting}>
-                            Submit
-                        </Button>
+                        {isSubmitted ? (
+                            <div
+                                style={{
+                                    display: "flex",
+                                    "align-items": "center",
+                                    gap: "8px",
+                                    color: "#A491F0",
+                                    "font-family": "Inter",
+                                    "font-size": "20px",
+                                    "font-weight": "600",
+                                }}
+                            >
+                                <Checkmark size="20px" color="#866BF0" />
+                                Success!
+                            </div>
+                        ) : (
+                            <Button type="submit" disabled={isSubmitting}>
+                                Submit
+                            </Button>
+                        )}
                     </Form>
                 )}
             </Formik>
