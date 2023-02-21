@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
 import styled from "styled-components";
-import StarfieldAnimation from "react-starfield-animation";
+import StarfieldAnimation from "./starfield/index";
 import Helmet from "react-helmet";
 
 import SignUpForm from "./SignUpForm";
@@ -16,10 +16,8 @@ const Screen = styled.div`
 
 const starfieldStyle = {
     position: "absolute",
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
+    width: "100vw",
+    height: "200vh",
 };
 
 const ContentBackground = styled.div`
@@ -125,7 +123,6 @@ function App() {
                     property="og:image"
                     content="https://boundless.so/cover.png"
                 />
-                <script async src="https://tally.so/widgets/embed.js"></script>
             </Helmet>
             <Screen>
                 <ContentBackground>
@@ -152,7 +149,7 @@ function App() {
                     </SecondaryContentContainer>
                 </SecondaryContentBackground>
                 <StarfieldAnimation
-                    numParticles={200}
+                    numParticles={500}
                     depth={2000}
                     style={starfieldStyle}
                 />

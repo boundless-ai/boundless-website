@@ -9,8 +9,8 @@ const FormContainer = styled.div`
 
     width: 70vw;
     max-width: 450px;
-    background-color: #00000060;
-    backdrop-filter: blur(2px);
+    background-color: #00000050;
+    backdrop-filter: blur(3px);
     border-radius: 14px;
     overflow-y: auto;
     padding: 40px;
@@ -28,7 +28,6 @@ const Title = styled.div`
 
     @media (max-width: 768px) {
         font-size: 35px;
-        text-align: left;
         flex-wrap: wrap;
     }
 `;
@@ -36,7 +35,7 @@ const Title = styled.div`
 const TextField = styled.input`
     color: white;
     border: 2px solid #313131;
-    background-color: #31313140;
+    background-color: #31313130;
     border-radius: 8px;
     padding: 10px;
     font-size: 20px;
