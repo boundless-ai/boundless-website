@@ -107,6 +107,7 @@ const SecondaryContentContainer = styled.div`
 `;
 
 function App() {
+    const subtitle = "Your personalized, intelligent OS";
     var pageEndRef = useRef(null);
 
     return (
@@ -114,10 +115,7 @@ function App() {
             <Helmet>
                 <title>Boundless</title>
                 <meta property="og:title" content="Boundless" />
-                <meta
-                    property="og:description"
-                    content="Instantly recall anything you've learned."
-                />
+                <meta property="og:description" content={subtitle} />
                 <meta
                     property="og:image"
                     content="https://boundless.so/cover.png"
@@ -129,7 +127,7 @@ function App() {
                         <Break count={3} />
                         <Title>Boundless</Title>
                         <Break count={1} />
-                        <Subtitle>Your personalized, intelligent OS</Subtitle>
+                        <Subtitle>{subtitle}</Subtitle>
                         <Break count={5} />
                         <Button
                             onClick={() =>

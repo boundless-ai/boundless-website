@@ -94,9 +94,9 @@ const SignUpForm = () => {
         color: "red",
         marginBottom: "6px",
         display: "inline-flex",
-        "font-family": "Inter",
-        "margin-left": "6px",
-        "text-align": "left",
+        fontFamily: "Inter",
+        marginLeft: "6px",
+        textAlign: "left",
         width: "100%",
     };
 
@@ -121,6 +121,10 @@ const SignUpForm = () => {
                                     Name: values.name,
                                     Email: values.email,
                                     Twitter: values.twitter,
+                                    Source: window.location.pathname.replace(
+                                        "/",
+                                        ""
+                                    ),
                                 },
                             },
                         ]);
