@@ -129,6 +129,7 @@ const SignUpForm = () => {
                                     Twitter: values.twitter,
                                     Source:
                                         source === "" ? "boundless" : source,
+                                    Date: new Date().toISOString(),
                                 },
                             },
                         ]);
