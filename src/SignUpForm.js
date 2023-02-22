@@ -84,7 +84,7 @@ const Button = styled.button`
 const SignUpSchema = Yup.object().shape({
     name: Yup.string().required("Required"),
     email: Yup.string().email("Invalid Email").required("Required"),
-    twitter: Yup.string().url("Invalid Twitter URL").required("Required"),
+    twitter: Yup.string().required("Required"),
 });
 
 const SignUpForm = () => {
@@ -126,7 +126,9 @@ const SignUpForm = () => {
                                 fields: {
                                     Name: values.name,
                                     Email: values.email,
-                                    Twitter: values.twitter,
+                                    Twitter: "https://twitter.com/".concat(
+                                        values.twitter
+                                    ),
                                     Source:
                                         source === "" ? "boundless" : source,
                                     Date: new Date().toISOString(),
@@ -190,11 +192,11 @@ const SignUpForm = () => {
                         />
                         <TextField
                             name="twitter"
-                            type="link"
+                            type="text"
                             onChange={handleChange}
                             onBlur={handleBlur}
                             value={values.twitter}
-                            placeholder="Twitter Link"
+                            placeholder="Twitter Handle"
                             style={{ marginBottom: "40px" }}
                         />
 
