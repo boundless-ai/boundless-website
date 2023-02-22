@@ -36,8 +36,8 @@ const TextField = styled.input`
     width: 100%;
     box-sizing: border-box;
     color: white;
-    border: 2px solid #313131;
-    background-color: #31313130;
+    border: 1px solid #313131;
+    background-color: #31313150;
     border-radius: 8px;
     padding: 10px;
     font-size: 20px;
@@ -48,6 +48,10 @@ const TextField = styled.input`
     &:focus {
         transition: 0.2s ease-out;
         border-color: #531ed6;
+    }
+
+    ::placeholder {
+        color: #b5b4bd;
     }
 `;
 

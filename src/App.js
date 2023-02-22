@@ -138,7 +138,7 @@ function App() {
                                 })
                             }
                         >
-                            Join Waitlist
+                            Waitlist
                         </Button>
                     </ContentContainer>
                 </ContentBackground>
