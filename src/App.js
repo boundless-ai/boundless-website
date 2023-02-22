@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useRef } from "react";
 import styled from "styled-components";
 import StarfieldAnimation from "./starfield/index";
 import Helmet from "react-helmet";
@@ -107,7 +107,6 @@ const SecondaryContentContainer = styled.div`
 `;
 
 function App() {
-    const [showModal, setShowModal] = useState(true);
     var pageEndRef = useRef(null);
 
     return (
