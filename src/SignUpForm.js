@@ -109,11 +109,17 @@ const SignUpForm = () => {
                 validateOnBlur={false}
                 onSubmit={(values, { setSubmitting }) => {
                     setTimeout(() => {
+                        const source = window.location.pathname.replace(
+                            "/",
+                            ""
+                        );
+
                         var Airtable = require("airtable");
                         Airtable.configure({
                             endpointUrl: "https://api.airtable.com",
                             apiKey: "patxG0XCGdjqKRqi0.6e75797e3fe20f78cca9df62fc4a5e0f028440a92d8778f73ea526795ba5f14c",
                         });
+
                         const base = Airtable.base("appQ8cRN0HwZeAvjv");
                         base("Sign Ups").create([
                             {
@@ -121,10 +127,8 @@ const SignUpForm = () => {
                                     Name: values.name,
                                     Email: values.email,
                                     Twitter: values.twitter,
-                                    Source: window.location.pathname.replace(
-                                        "/",
-                                        ""
-                                    ),
+                                    Source:
+                                        source === "" ? "Boundless" : source,
                                 },
                             },
                         ]);
