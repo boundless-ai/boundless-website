@@ -128,7 +128,7 @@ const SignUpForm = () => {
                                     Email: values.email,
                                     Twitter: values.twitter,
                                     Source:
-                                        source === "" ? "Boundless" : source,
+                                        source === "" ? "boundless" : source,
                                 },
                             },
                         ]);
