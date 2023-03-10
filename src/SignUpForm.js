@@ -3,6 +3,8 @@ import styled from "styled-components";
 import { Checkmark } from "react-checkmark";
 import { Formik, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
+import { createClient } from "@supabase/supabase-js";
+import { v4 as uuidv4 } from "uuid";
 
 const FormContainer = styled.div`
     z-index: 1;
@@ -108,33 +110,27 @@ const SignUpForm = () => {
                 validateOnChange={false}
                 validateOnBlur={false}
                 onSubmit={(values, { setSubmitting }) => {
-                    setTimeout(() => {
+                    setTimeout(async () => {
                         const source = window.location.pathname.replace(
                             "/",
                             ""
                         );
 
-                        var Airtable = require("airtable");
-                        Airtable.configure({
-                            endpointUrl: "https://api.airtable.com",
-                            apiKey: "patxG0XCGdjqKRqi0.6e75797e3fe20f78cca9df62fc4a5e0f028440a92d8778f73ea526795ba5f14c",
-                        });
+                        const supabase = createClient(
+                            "https://nalpfwphutndpevbickm.supabase.co",
+                            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5hbHBmd3BodXRuZHBldmJpY2ttIiwicm9sZSI6ImFub24iLCJpYXQiOjE2Nzg0Mjk5NDksImV4cCI6MTk5NDAwNTk0OX0.c13jwuDhy0IFpuJ56ZYnzTZaL3lwdiy0k7aoA4XRq5c"
+                        );
 
-                        const base = Airtable.base("appQ8cRN0HwZeAvjv");
-                        base("Sign Ups").create([
-                            {
-                                fields: {
-                                    Name: values.name,
-                                    Email: values.email,
-                                    Twitter: "https://twitter.com/".concat(
-                                        values.twitter
-                                    ),
-                                    Source:
-                                        source === "" ? "boundless" : source,
-                                    Date: new Date().toISOString(),
-                                },
-                            },
-                        ]);
+                        await supabase.from("waitlist").insert({
+                            id: uuidv4(),
+                            name: values.name,
+                            email: values.email,
+                            twitter: "https://twitter.com/".concat(
+                                values.twitter
+                            ),
+                            source: source === "" ? "boundless" : source,
+                            date: new Date(),
+                        });
 
                         setSubmitting(false);
                         setIsSubmitted(true);
