@@ -25,6 +25,16 @@ function App() {
                         />
                     }
                 />
+
+                <Route
+                    path="/search"
+                    element={
+                        <Page
+                            title="Boundless Search"
+                            subtitle="All your knowledge, at your fingertips"
+                        />
+                    }
+                />
             </Routes>
         </Router>
     );
