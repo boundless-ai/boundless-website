@@ -146,6 +146,7 @@ function Page({ title, subtitle }) {
                 <StarfieldAnimation
                     numParticles={500}
                     depth={2000}
+                    origin={{ x: 0.5, y: 0.25 }}
                     style={starfieldStyle}
                 />
             </Screen>
