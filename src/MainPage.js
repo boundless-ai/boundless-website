@@ -2,8 +2,7 @@ import { useRef } from "react";
 import styled from "styled-components";
 import Helmet from "react-helmet";
 import StarfieldAnimation from "./starfield/index";
-
-import SignUpForm from "./SignUpForm";
+import { Tweet } from "react-twitter-widgets";
 
 const Screen = styled.div`
     min-height: 100vh;
@@ -15,9 +14,11 @@ const Screen = styled.div`
 `;
 
 const starfieldStyle = {
-    position: "absolute",
+    position: "fixed",
+    top: 0,
     width: "100vw",
-    height: "200vh",
+    height: "100vh",
+    zIndex: 0,
 };
 
 const ContentBackground = styled.div`
@@ -102,10 +103,16 @@ const SecondaryContentContainer = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
 `;
 
-function Page({ title, subtitle }) {
+const TweetContainer = styled.div`
+    z-index: 1;
+    max-width: 700px;
+    width: 95vw;
+`;
+
+function MainPage({ title, subtitle }) {
     var pageEndRef = useRef(null);
 
     return (
@@ -118,6 +125,11 @@ function Page({ title, subtitle }) {
                     property="og:image"
                     content="https://boundless.so/cover.png"
                 />
+                <script
+                    async
+                    src="https://platform.twitter.com/widgets.js"
+                    charset="utf-8"
+                ></script>
             </Helmet>
             <Screen>
                 <ContentBackground>
@@ -134,19 +146,54 @@ function Page({ title, subtitle }) {
                                 })
                             }
                         >
-                            Waitlist
+                            Teasers
                         </Button>
                     </ContentContainer>
                 </ContentBackground>
                 <SecondaryContentBackground>
                     <SecondaryContentContainer>
-                        <SignUpForm />
+                        <div style={{ height: "40px" }} />
+
+                        <TweetContainer>
+                            <Tweet
+                                tweetId="1634278433168711680"
+                                options={{ theme: "dark", align: "center" }}
+                            />
+                        </TweetContainer>
+
+                        <div style={{ height: "20px" }} />
+
+                        <TweetContainer>
+                            <Tweet
+                                tweetId="1630733879220011008"
+                                options={{ theme: "dark", align: "center" }}
+                            />
+                        </TweetContainer>
+
+                        <div style={{ height: "20px" }} />
+
+                        <TweetContainer>
+                            <Tweet
+                                tweetId="1627118300194013186"
+                                options={{ theme: "dark", align: "center" }}
+                            />
+                        </TweetContainer>
+
+                        <div style={{ height: "20px" }} />
+
+                        <TweetContainer>
+                            <Tweet
+                                tweetId="1613662193974923264"
+                                options={{ theme: "dark", align: "center" }}
+                            />
+                        </TweetContainer>
+
+                        <div style={{ height: "40px" }} />
                     </SecondaryContentContainer>
                 </SecondaryContentBackground>
                 <StarfieldAnimation
-                    numParticles={500}
-                    depth={2000}
-                    origin={{ x: 0.5, y: 0.25 }}
+                    numParticles={250}
+                    depth={1000}
                     style={starfieldStyle}
                 />
             </Screen>
@@ -163,4 +210,4 @@ function Break(props) {
     return <div>{breaks}</div>;
 }
 
-export default Page;
+export default MainPage;

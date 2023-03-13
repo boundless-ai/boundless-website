@@ -20,6 +20,10 @@ class StarfieldAnimation extends PureComponent {
             width: PropTypes.number,
             height: PropTypes.number,
         }).isRequired,
+        origin: PropTypes.shape({
+            x: PropTypes.number,
+            y: PropTypes.number,
+        }),
         style: PropTypes.object,
     };
 
@@ -29,6 +33,10 @@ class StarfieldAnimation extends PureComponent {
         lineWidth: 2,
         depth: 300,
         style: {},
+        origin: {
+            x: 0.5,
+            y: 0.5,
+        },
     };
 
     componentWillMount() {
@@ -135,13 +143,13 @@ class StarfieldAnimation extends PureComponent {
     }
 
     _reset(props) {
-        const { numParticles, depth, size } = props;
+        const { numParticles, depth, size, origin } = props;
 
         this._particles = [];
 
         const vp = {
-            x: size.width / 2,
-            y: size.height / 4,
+            x: size.width * origin.x,
+            y: size.height * origin.y,
         };
 
         this._vp = vp;

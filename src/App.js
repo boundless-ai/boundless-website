@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
+import MainPage from "./MainPage";
 import Page from "./Page";
 
 function App() {
@@ -9,7 +10,7 @@ function App() {
                 <Route
                     path="/"
                     element={
-                        <Page
+                        <MainPage
                             title="Boundless"
                             subtitle="Your personalized, intelligent OS"
                         />
