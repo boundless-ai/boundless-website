@@ -156,6 +156,15 @@ function MainPage({ title, subtitle }) {
 
                         <TweetContainer>
                             <Tweet
+                                tweetId="1634278433168711680"
+                                options={{ theme: "dark", align: "center" }}
+                            />
+                        </TweetContainer>
+
+                        <div style={{ height: "20px" }} />
+
+                        <TweetContainer>
+                            <Tweet
                                 tweetId="1630733879220011008"
                                 options={{ theme: "dark", align: "center" }}
                             />
@@ -169,11 +178,22 @@ function MainPage({ title, subtitle }) {
                                 options={{ theme: "dark", align: "center" }}
                             />
                         </TweetContainer>
+
+                        <div style={{ height: "20px" }} />
+
+                        <TweetContainer>
+                            <Tweet
+                                tweetId="1613662193974923264"
+                                options={{ theme: "dark", align: "center" }}
+                            />
+                        </TweetContainer>
+
+                        <div style={{ height: "40px" }} />
                     </SecondaryContentContainer>
                 </SecondaryContentBackground>
                 <StarfieldAnimation
-                    numParticles={500}
-                    depth={2000}
+                    numParticles={250}
+                    depth={1000}
                     style={starfieldStyle}
                 />
             </Screen>
