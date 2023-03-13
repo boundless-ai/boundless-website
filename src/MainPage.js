@@ -14,9 +14,10 @@ const Screen = styled.div`
 `;
 
 const starfieldStyle = {
-    position: "absolute",
+    position: "fixed",
+    top: 0,
     width: "100vw",
-    height: "294vh",
+    height: "100vh",
     zIndex: 0,
 };
 
