@@ -36,6 +36,11 @@ function App() {
                         />
                     }
                 />
+
+                <Route
+                    path="/iris"
+                    element={<Page title="Iris" subtitle="AI with sight" />}
+                />
             </Routes>
         </Router>
     );
