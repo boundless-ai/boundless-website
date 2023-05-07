@@ -156,6 +156,15 @@ function MainPage({ title, subtitle }) {
 
                         <TweetContainer>
                             <Tweet
+                                tweetId="1655080871022690307"
+                                options={{ theme: "dark", align: "center" }}
+                            />
+                        </TweetContainer>
+
+                        <div style={{ height: "20px" }} />
+
+                        <TweetContainer>
+                            <Tweet
                                 tweetId="1652354053312061444"
                                 options={{ theme: "dark", align: "center" }}
                             />
